@@ -26,10 +26,12 @@ public class FirstHomePageTest extends FirstBaseTest {
     public void navigateBack() {
         ffDriver.navigate().to("https://www.facebook.com");
         ffDriver.navigate().back();
+        Assert.assertEquals(ffDriver.getCurrentUrl(), "https://qatechhub.com/");
     }
 
     @Test (priority=3)
     public void printCurrentURL() {
+        Assert.assertEquals(ffDriver.getCurrentUrl(), "https://qatechhub.com/");
         System.out.println("*** Current URL is: "+ ffDriver.getCurrentUrl());
     }
 

@@ -24,7 +24,9 @@ public class SecondHomePageTest extends SecondBaseTest {
 
     @Test(priority = 1)
     public void checkRedirectingURL() {
+        //making sure we are on the US version site
         chDriver.findElement(By.cssSelector("#pageFooter > ul > li:nth-child(2) > a")).click();
+        //checking assertion to the current url
         Assert.assertEquals(chDriver.getCurrentUrl(), "https://www.facebook.com/");
     }
 
@@ -51,13 +53,13 @@ public class SecondHomePageTest extends SecondBaseTest {
         chDriver.findElement(By.id("password_step_input")).sendKeys(password);
         //fill birth month
         Select month = new Select(chDriver.findElement(By.id("month")));
-        month.selectByIndex(3);
+        month.selectByVisibleText("May");
         //fill birth day
         Select day = new Select(chDriver.findElement(By.id("day")));
-        day.selectByIndex(4);
+        day.selectByVisibleText("3");
         //fill birth year
         Select year = new Select(chDriver.findElement(By.id("year")));
-        year.selectByIndex(15);
+        year.selectByVisibleText("2001");
         //select gender
         WebElement gender = chDriver.findElement(By.cssSelector("input[name='sex'][value='2']"));
         gender.click();
@@ -70,6 +72,11 @@ public class SecondHomePageTest extends SecondBaseTest {
             return new Object[][]{
                     {"EwaveFirst", "EwaveLast", "0509998888", "EwavePass"}
             };
+    }
+
+    @Test (priority=4)
+    public void closeBrowser() {
+        teardown();
     }
 }
 
