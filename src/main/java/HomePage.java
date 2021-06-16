@@ -8,8 +8,8 @@ public class HomePage extends BasePage {
     }
 
     //Page Variables
-    String firstBaseURL = "http://qatechhub.com";
-    String secondBaseURL = "http://www.fb.com";
+    String firstBaseURL = "https://qatechhub.com";
+    String secondBaseURL = "https://www.fb.com";
 
     //Page Methods
     //Go to Homepage
